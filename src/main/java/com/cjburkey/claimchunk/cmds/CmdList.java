@@ -6,6 +6,7 @@ import com.cjburkey.claimchunk.chunk.ChunkHandler;
 import com.cjburkey.claimchunk.chunk.ChunkPos;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import com.cjburkey.claimchunk.player.PlayerHandler;
 import java.util.UUID;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,7 @@ public class CmdList implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "list";
+        return claimChunk.getCommandNames().get("list", Path.COMMAND);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class CmdList implements ICommand {
 
     @Override
     public Argument[] getPermittedArguments(ClaimChunk claimChunk) {
-        return new Argument[]{new Argument("page", Argument.TabCompletion.NONE)};
+        return new Argument[]{new Argument(claimChunk.getCommandNames().get("page", Path.ARGUMENT), Argument.TabCompletion.NONE)};
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.cjburkey.claimchunk.ClaimChunk;
 import com.cjburkey.claimchunk.Utils;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import com.cjburkey.claimchunk.player.PlayerHandler;
 import java.util.UUID;
 import org.bukkit.Chunk;
@@ -14,7 +15,7 @@ public class CmdInfo implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "info";
+        return claimChunk.getCommandNames().get("info", Path.COMMAND);
     }
 
     @Override

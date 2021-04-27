@@ -1,5 +1,6 @@
 package com.cjburkey.claimchunk;
 
+import com.cjburkey.claimchunk.cmd.Path;
 import com.cjburkey.claimchunk.packet.TitleHandler;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -141,6 +142,10 @@ public final class Utils {
 
         // Output with the ClaimChunk prefix
         return String.format("[%s] %s", claimChunk.getDescription().getPrefix(), color(String.format(out, data)));
+    }
+
+    public static boolean parseBoolean(String s, ClaimChunk claimChunk) {
+        return claimChunk.getCommandNames().get("true", Path.ARGUMENT).equalsIgnoreCase(s);
     }
 
 }

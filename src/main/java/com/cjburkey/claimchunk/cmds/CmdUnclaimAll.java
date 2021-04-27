@@ -6,6 +6,7 @@ import com.cjburkey.claimchunk.chunk.ChunkHandler;
 import com.cjburkey.claimchunk.chunk.ChunkPos;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -13,7 +14,7 @@ public class CmdUnclaimAll implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "unclaimall";
+        return claimChunk.getCommandNames().get("unclaimall", Path.COMMAND);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class CmdUnclaimAll implements ICommand {
 
     @Override
     public Argument[] getPermittedArguments(ClaimChunk claimChunk) {
-        return new Argument[]{new Argument("acrossAllWorlds", Argument.TabCompletion.BOOLEAN)};
+        return new Argument[]{new Argument(claimChunk.getCommandNames().get("acrossAllWorlds", Path.ARGUMENT), Argument.TabCompletion.BOOLEAN)};
     }
 
     @Override
@@ -43,7 +44,7 @@ public class CmdUnclaimAll implements ICommand {
 
     @Override
     public boolean onCall(ClaimChunk claimChunk, String cmdUsed, Player executor, String[] args) {
-        boolean allWorlds = (args.length == 1 && Boolean.parseBoolean(args[0]));
+        boolean allWorlds = (args.length == 1 && Utils.parseBoolean(args[0], claimChunk));
         ChunkHandler chunkHandler = claimChunk.getChunkHandler();
 
         ChunkPos[] claimedChunks = chunkHandler.getClaimedChunks(executor.getUniqueId());

@@ -12,12 +12,12 @@ import com.cjburkey.claimchunk.player.*;
 import com.cjburkey.claimchunk.rank.RankHandler;
 import com.cjburkey.claimchunk.update.*;
 import com.cjburkey.claimchunk.worldguard.WorldGuardHandler;
+import lombok.Getter;
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -107,6 +107,9 @@ public final class ClaimChunk extends JavaPlugin {
     // start-ups
     private final AdminOverride adminOverride = new AdminOverride();
 
+    @Getter
+    private CommandNames commandNames;
+
     public static void main(String[] args) {
         // The user tried to run this jar file like a program
         // It is meant to be used as a Spigot/Bukkit/Paper/etc Java plugin
@@ -116,6 +119,7 @@ public final class ClaimChunk extends JavaPlugin {
 
     @Override
     public void onLoad() {
+
         // Assign the global instance to this instance of the plugin
         instance = this;
 
@@ -170,6 +174,7 @@ public final class ClaimChunk extends JavaPlugin {
         economy = new Econ();
         chunkHandler = new ChunkHandler(dataHandler, this);
         playerHandler = new PlayerHandler(dataHandler, this);
+        commandNames = new CommandNames(getDataFolder().getPath());
         // As of version 0.0.23, the `ranks.json` file will be located in
         // `/plugins/ClaimChunk` instead of `/plugins/ClaimChunk/data` to make
         // it more accessible. The rank handler will automatically copy the
@@ -506,18 +511,18 @@ public final class ClaimChunk extends JavaPlugin {
     }
 
     private void setupCommands() {
+        //init commandnames
+        commandNames.init();
+
         // Register all the commands
         Commands.register(cmd);
 
-        // Get the Spigot command
-        PluginCommand command = getCommand("chunk");
-        if (command != null) {
-            // Use our custom plugin executor
-            command.setExecutor(cmd);
-
-            // Set the tab completer so tab complete works with all the sub commands
-            command.setTabCompleter(new AutoTabCompletion(this));
-        }
+        //register command
+        CCCommand command = new CCCommand(commandNames.getMainCommand(), cmd, new AutoTabCompletion(this));
+        command.setProperty("description", "The ClaimChunk main command. Use ''/claimchunk help'' or ''/chunk help'' for more information");
+        command.setProperty("usage", "/<command> help");
+        command.setProperty("aliases", commandNames.getAliases());
+        command.register();
     }
 
     private void scheduleDataSaver() {
@@ -664,6 +669,7 @@ public final class ClaimChunk extends JavaPlugin {
         profileManager = null;
         placeholders = null;
         messages = null;
+        commandNames = null;
 
         Utils.log("Finished disable.");
     }

@@ -5,6 +5,7 @@ import com.cjburkey.claimchunk.Utils;
 import com.cjburkey.claimchunk.chunk.ChunkPos;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -12,7 +13,7 @@ public class CmdShow implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "show";
+        return claimChunk.getCommandNames().get("show", Path.COMMAND);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class CmdShow implements ICommand {
 
     @Override
     public Argument[] getPermittedArguments(ClaimChunk claimChunk) {
-        return new Argument[]{new Argument("seconds", Argument.TabCompletion.NONE)};
+        return new Argument[]{new Argument(claimChunk.getCommandNames().get("seconds", Path.ARGUMENT), Argument.TabCompletion.NONE)};
     }
 
     @Override

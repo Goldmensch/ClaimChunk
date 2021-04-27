@@ -4,6 +4,7 @@ import com.cjburkey.claimchunk.ClaimChunk;
 import com.cjburkey.claimchunk.Utils;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -13,7 +14,7 @@ public class CmdTnt implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "tnt";
+        return claimChunk.getCommandNames().get("tnt", Path.COMMAND);
     }
 
     @Override

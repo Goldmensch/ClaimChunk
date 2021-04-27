@@ -52,7 +52,8 @@ public class AutoTabCompletion implements TabCompleter {
                     return getOfflinePlayers(args[args.length - 1]);
                 case BOOLEAN:
                     // Return a boolean value
-                    return Arrays.asList("true", "false");
+                    return Arrays.asList(claimChunk.getCommandNames().get("true", Path.ARGUMENT),
+                            claimChunk.getCommandNames().get("false", Path.ARGUMENT));
                 default:
                     // Return an empty list because it's an invalid/none tab completion
                     return new ArrayList<>();

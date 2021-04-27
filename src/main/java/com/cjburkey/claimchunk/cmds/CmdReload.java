@@ -4,6 +4,7 @@ import com.cjburkey.claimchunk.ClaimChunk;
 import com.cjburkey.claimchunk.Utils;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
@@ -12,7 +13,7 @@ public class CmdReload implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "reload";
+        return claimChunk.getCommandNames().get("reload", Path.COMMAND);
     }
 
     @Override

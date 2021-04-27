@@ -4,6 +4,7 @@ import com.cjburkey.claimchunk.ClaimChunk;
 import com.cjburkey.claimchunk.Utils;
 import com.cjburkey.claimchunk.cmd.Argument;
 import com.cjburkey.claimchunk.cmd.ICommand;
+import com.cjburkey.claimchunk.cmd.Path;
 import com.cjburkey.claimchunk.player.PlayerHandler;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -12,7 +13,7 @@ public class CmdName implements ICommand {
 
     @Override
     public String getCommand(ClaimChunk claimChunk) {
-        return "name";
+        return claimChunk.getCommandNames().get("name", Path.COMMAND);
     }
 
     @Override
@@ -33,7 +34,7 @@ public class CmdName implements ICommand {
     @Override
     public Argument[] getPermittedArguments(ClaimChunk claimChunk) {
         return new Argument[]{
-                new Argument("newName", Argument.TabCompletion.NONE),
+                new Argument(claimChunk.getCommandNames().get("newName", Path.ARGUMENT), Argument.TabCompletion.NONE),
         };
     }
 
