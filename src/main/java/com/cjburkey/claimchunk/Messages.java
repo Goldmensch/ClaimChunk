@@ -132,22 +132,22 @@ public final class Messages {
     public String chunkLeaveSelf = "&6Exiting your territory";
 
     // Protection localization
-    public final String chunkCancelAdjacentPlace = "&cYou can't place &e%%BLOCK%%&c next to &e%%BLOCK%%&c in %%OWNER%%&c's chunks";
-    public final String chunkCancelClaimedEntityInteract = "&cYou can't interact with &e%%ENTITY%%&c in &e%%OWNER%%&c's chunks";
-    public final String chunkCancelUnclaimedEntityInteract = "&cYou can't interact with &e%%ENTITY%%&c in unclaimed chunks";
-    public final String chunkCancelClaimedEntityDamage = "&cYou can't damage &e%%ENTITY%%&c in &e%%OWNER%%&c's chunks";
-    public final String chunkCancelUnclaimedEntityDamage = "&cYou can't damage &e%%ENTITY%%&c in unclaimed chunks";
-    public final String chunkCancelClaimedBlockInteract = "&cYou can't interact with &e%%BLOCK%%&c in &e%%OWNER%%&c's chunks";
-    public final String chunkCancelUnclaimedBlockInteract = "&cYou can't interact with &e%%BLOCK%%&c in unclaimed chunks";
-    public final String chunkCancelClaimedBlockBreak = "&cYou can't break &e%%BLOCK%%&c in &e%%OWNER%%&c's chunks";
-    public final String chunkCancelUnclaimedBlockBreak = "&cYou can't break &e%%BLOCK%%&c in unclaimed chunks";
-    public final String chunkCancelClaimedBlockPlace = "&cYou can't place &e%%BLOCK%%&c in &e%%OWNER%%&c's chunks";
-    public final String chunkCancelUnclaimedBlockPlace = "&cYou can't place &e%%BLOCK%%&c in unclaimed chunks";
+    public String chunkCancelAdjacentPlace = "&cYou can't place &e%%BLOCK%%&c next to &e%%BLOCK%%&c in %%OWNER%%&c's chunks";
+    public String chunkCancelClaimedEntityInteract = "&cYou can't interact with &e%%ENTITY%%&c in &e%%OWNER%%&c's chunks";
+    public String chunkCancelUnclaimedEntityInteract = "&cYou can't interact with &e%%ENTITY%%&c in unclaimed chunks";
+    public String chunkCancelClaimedEntityDamage = "&cYou can't damage &e%%ENTITY%%&c in &e%%OWNER%%&c's chunks";
+    public String chunkCancelUnclaimedEntityDamage = "&cYou can't damage &e%%ENTITY%%&c in unclaimed chunks";
+    public String chunkCancelClaimedBlockInteract = "&cYou can't interact with &e%%BLOCK%%&c in &e%%OWNER%%&c's chunks";
+    public String chunkCancelUnclaimedBlockInteract = "&cYou can't interact with &e%%BLOCK%%&c in unclaimed chunks";
+    public String chunkCancelClaimedBlockBreak = "&cYou can't break &e%%BLOCK%%&c in &e%%OWNER%%&c's chunks";
+    public String chunkCancelUnclaimedBlockBreak = "&cYou can't break &e%%BLOCK%%&c in unclaimed chunks";
+    public String chunkCancelClaimedBlockPlace = "&cYou can't place &e%%BLOCK%%&c in &e%%OWNER%%&c's chunks";
+    public String chunkCancelUnclaimedBlockPlace = "&cYou can't place &e%%BLOCK%%&c in unclaimed chunks";
 
     // AdminOverride localization
-    public final String adminOverrideNoPerm = "&cYou have no permissions to use adminOverride";
-    public final String adminOverrideEnable = "&eYou now have protection bypass";
-    public final String adminOverrideDisable = "&eYou no longer have protection bypass";
+    public String adminOverrideNoPerm = "&cYou have no permissions to use adminOverride";
+    public String adminOverrideEnable = "&eYou now have protection bypass";
+    public String adminOverrideDisable = "&eYou no longer have protection bypass";
 
     // Command description localization
     public String cmdAccess = "Toggle access for [player] in your claimed territory or list players that have access to your chunks";
