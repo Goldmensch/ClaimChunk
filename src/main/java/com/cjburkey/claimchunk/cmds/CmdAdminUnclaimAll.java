@@ -49,7 +49,7 @@ public class CmdAdminUnclaimAll implements ICommand {
 
     @Override
     public boolean onCall(ClaimChunk claimChunk, String cmdUsed, Player executor, String[] args) {
-        boolean allWorlds = (args.length == 2 && Utils.parseBoolean(args[1], claimChunk));
+        boolean allWorlds = (args.length == 2 && Boolean.parseBoolean(args[1]));
         ChunkHandler chunkHandler = claimChunk.getChunkHandler();
 
         UUID ply = claimChunk.getPlayerHandler().getUUID(args[0]);
