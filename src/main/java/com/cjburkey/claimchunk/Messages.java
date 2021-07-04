@@ -79,7 +79,7 @@ public final class Messages {
 
     // TNT localization
     public String tntNoPerm = "&cYou do not have permission to toggle TNT in this chunk";
-    public String tntAlreadyEnabled = "&cTNT is already enabled in the config";
+    //public String tntAlreadyEnabled = "&cTNT is already enabled in the config";
     public String tntEnabled = "&aTNT has been enabled in this chunk";
     public String tntDisabled = "&aTNT has been disabled in this chunk";
 
